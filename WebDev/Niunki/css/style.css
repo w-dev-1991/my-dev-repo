@@ -1,0 +1,165 @@
+body{
+	font-family: B612, Arial, Helvetica, sans-serif;
+	font: 15px/1.5;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Global */
+.container{
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+}
+
+h2{
+	margin:0px;
+	padding: 0px;
+}
+
+ul{
+	padding: 0;
+	margin: 0;
+}
+
+.niunka-span{
+ 	color: #CE80D7;
+ 	margin: 0px;
+}
+
+.niuniek-span{
+	color: #050616;
+}
+
+/* Header */
+header{
+	background-color: #566B54;
+	color: #f4f4f4;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 3px;
+	border-color: #f4f4f4;
+	border-bottom-style: solid;
+}
+
+header .highlight{
+	
+}
+
+#header-left{
+	float:left;
+}
+
+#main-navbar{
+	float:right;
+	margin-top: 25px;
+}
+
+header li{
+	display: inline;
+	padding: 0 10px 0 10px;
+}
+
+header h1{
+	font-size: 27px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+header a{
+	text-decoration:none;
+	color: #f4f4f4;
+}
+header a:hover{
+	font-weight:bold;
+	color: #CE80D7;
+}
+
+header .current{
+	color: #000000;
+	font-weight: bold;
+}
+
+/* Showcase */
+
+/*img.resize{
+	height: 600px;
+	width: auto;
+}*/
+
+
+.showcase{
+
+	background:url('../img/showcase2b.jpg') 0 -100px;
+	background-repeat: no-repeat;
+	/*background-size: cover;*/
+	background-size: 100%;
+	background-position: center;
+	opacity: 0.7;
+	min-height:400px;
+	border-bottom: 5px;
+	border-color: #f4f4f4;
+	border-bottom-style: solid;
+}
+
+.niunki{
+	font-size: 50px;
+	text-align: center;
+	margin-top:20px;
+	
+}
+
+.niunki-span{
+	color: #000000;
+	font-size: 60px;
+	font-weight: bold;
+	margin:0px;
+	padding: 0px;
+
+	
+}
+
+.showcase-2{
+	background-color: #566B54;
+	margin: none;
+}
+
+.showcase-2 figure{
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+}
+
+.showcase-2 figure img{
+	width: 300px;
+	height: auto;
+	margin-right: 35px;
+	margin-left:  35px;
+	border-radius: 50%;
+	box-shadow: #f4f4f4 0 0 4px 2px ;
+	border: 1px grey solid;
+
+}
+
+.showcase-2 figure figcaption{
+	padding-top: 5px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.grid-header{
+	display:flex;
+	/*flex-direction: column;*/
+	justify-content: space-between;
+	/*grid-template-columns: 1fr 1fr;*/
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+	
+
+}
+
+
+
