@@ -1,0 +1,52 @@
+df.show() #- wyswietla dane
+df = spark.read.csv("csv_file_name.csv", inferSchema = True, header=True)
+
+df.createOrReplaceTempView("temp_view_name")
+
+df.printSchema()
+
+#--Manipulating Columns--
+import pyspark.sql.functions as F
+
+df.select("col_name").show(1) 
+df.select(F.col("col_name")).show(1)
+df.select("col_name", "col_name2").show(1) 
+
+
+#*Changing column name
+df.select(F.expr("col_name as new_col_name")).show(1)
+df.select(F.expr("col_name as new_col_name").alias("col_name").show(3)
+
+
+#*Addition of new column
+new_df = df.selectExpr("col_name as new_col_name", "col_name")
+new_df2 = df.selectExpr("avg(sales)", "count(distinct(country))")
+
+df.select(F.expr("*"), F.lit(1).alias("One").show() 
+
+
+
+
+#****DBUTILS**** 
+dbutils.help()
+dbutils.fs.help()
+dbutils.widgets.help()
+
+%fs ls "path/"
+dbutils.fs.ls('path')
+
+
+dbutils.notebook('/path_to_notebook/notebook.py', 60)    #-> path, timeout
+%run /path_to_notebook/notebook.py $arg1="value1" $arg2="value2" $arg3="value3"
+
+
+#*****READING FROM CSV IN PYSPARK*****
+https://sparkbyexamples.com/spark/spark-read-csv-file-into-dataframe/
+
+#*****ASTERISK IN PYTHON*****
+https://medium.com/understand-the-python/understanding-the-asterisk-of-python-8b9daaa4a558
+
+#*****PASSING XIT VALUES FROM DATABRICKS NOTEBOOK*****
+https://the.agilesql.club/2020/02/passing-status-messages-and-results-back-from-databricks-to-adf/
+
+

@@ -1,0 +1,73 @@
+#HOW TO MOUNT BLOB STORAGE TO DATABRICKS
+https://www.youtube.com/watch?v=9VzBS4OiP_A&ab_channel=AdamMarczak-AzureforEveryone
+
+1. install databricks in Azure CLI 
+	-run python evn 
+	-download databricks CLI (pip3 install databricks-cli)
+	
+2. in CLI run
+	databricks configure --token
+	
+3. go to Databricks workspace in azureportal 
+	- click in the top right corner on the "Profile" icon and select "User Settings"
+	- click Generate New Token
+	- add Comment
+	- copy Token !!!! save it somewhere
+	
+4. Get Databricks Host (the easiest way is to get it from browsers URL) e.g.
+	https://adb-3526297676935316.16.azuredatabricks.net/
+	https://westeurope.azuredatabricks.net/
+	
+	Paste the Host to the CLI
+	
+5. Paste the Token in the CLI
+	dapi3aefa3227338ff429f861a48a4912aef-2
+	
+6. Try the connection to databricks with command
+	databricks clusters
+	databricks secrets list-scopes
+	
+	if you are getting 'bad request' error try changing the Token value manually
+	
+	https://forums.databricks.com/questions/50353/databricks-cli-getting-bbad-request-error.html	
+		check the file located at
+		
+		"C:\Users\YourUsername.databrickscfg"
+		
+		or "~/.databrickscfg"
+		
+		and make sure the token is saved in there properly from databricks configure --token
+		
+		mine was not (maybe from pasting it?) and I manually set it correctly and that worked		
+
+7. create new Scope with command:
+	databricks secrets create-scope --scope SCOPENAME
+	
+8. create new Secret within the Scope:
+	databricks secrets put --scope SCOPENAME --key KEYNAME
+	
+	A notebook window will pop up. You have to paste there access key from Storage Account, save and exit.
+
+9.  upload sample csv file to the container on blob storage 
+	
+10. go to databricks and create new notebook with Scala, to check if the connection works.
+	 
+		val blobAccessKey = dbutils.secrets.get(scope = "SCOPENAME", key = "KEYNAME")
+		val storageAccountName = "storage-account-name"
+		val containerName = "container-name"
+		
+		spark.conf.set(
+		"fs.azure.account.key." + storageAccountName + ".blob.core.windows.net",
+		blobAccessKey)
+		
+		val fileName = "sample_file.csv"
+		
+		val data = spark.read
+		.option("header", "true")
+		.option("delimiter", ",")
+		.csv("wasbs://" + containerName + "@" + storageAccountName + ".blob.core.windows.net/" + fileName)
+		
+		display(data)
+	 
+	 
+	 

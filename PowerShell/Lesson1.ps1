@@ -1,0 +1,3 @@
+#Connect-AzureRmAccount
+
+Connect-AzAccount
