@@ -1,0 +1,151 @@
+R
+
+library(help = "datasets") -> wyswietla informacje o dostepnych datasetach
+
+#####WEKTORY#####
+##Tworzenie wektorów 
+> v1 <- c(1, 2, 3, 10)
+[1]  1  2  3 10
+
+> v2 <- c("Wojtek", "Madzia", "tata")
+[1] "Wojtek" "Madzia" "tata"
+
+> v3 <- 4:10
+[1]  4  5  6  7  8  9 10
+
+##Retrieving data from vectors
+> v2[2] #Zwrócenie dowolnego elemetu z wektora
+[1] "Madzia"
+
+> v2[-2] #Zwrócenie wszystkich elementów oprócz wybranego
+[1] "Wojtek" "tata" 
+
+> v1[-(1:2)]
+[1]  3 10
+
+> v1[-(c(1, 3))]
+[1]  2 10
+
+> v3[c(2,3,5)]
+[1] 5 6 8
+
+> v3[-c(2,3,5)]
+[1]  4  7  9 10
+
+> v3[v3<6]
+[1] 4 5
+
+##Sekwencje 
+> 1:6
+[1] 1 2 3 4 5 6
+
+> seq(from=1, to=6, by=3/4)
+[1] 1.00 1.75 2.50 3.25 4.00 4.75 5.50
+
+> rep(6, times=4) #powtorzenie iles razy tego samego
+[1] 6 6 6 6
+
+> rep(1:3, times= 3)
+[1] 1 2 3 1 2 3 1 2 3
+
+> rep (seq(from=4, to=10, by=0.75), times=2)
+ [1]  4.00  4.75  5.50  6.25  7.00  7.75  8.50  9.25 10.00  4.00  4.75  5.50
+[13]  6.25  7.00  7.75  8.50  9.25 10.00
+
+##Operations on vectors
+> y <- 4:7
+> x <- 10:13
+
+> y - 10
+[1] -6 -5 -4 -3
+
+>  y * 2
+[1]  8 10 12 14
+---------------------------------------------
+Jeśli dwa wektory są tej samej dlugosci mozemy je dodawac/odejmowac/mnozyc/dzielic
+> x + y
+[1] 14 16 18 20
+> x/y
+[1] 2.500000 2.200000 2.000000 1.857143
+
+##Matrixes
+> matrix(1:9, nrow = 3, byrow = TRUE)
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+---------------------------------------------
+
+> matrix(1:9, nrow = 3, byrow = TRUE, dimnames = list(c("Row1", "Row2", "Row3"), c("Column1", "Column2", "Column3")))
+     Column1 Column2 Column3
+Row1       1       2       3
+Row2       4       5       6
+Row3       7       8       9
+---------------------------------------------
+
+> mat <- matrix(1:12, nrow = 4, byrow = TRUE)
+> mat
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+[4,]   10   11   12
+> mat[c(1, 2, 4), 2]
+[1]  2  5 11
+
+
+
+
+##Import data from file
+data1 <- read.csv(file = choose.files(), header = TRUE, sep = "\t")
+
+##Attach
+>attach(dataset) # ładowanie do workspace memory datasetu - pozniej nie trzeba przed nazwa wektora dawac nazwy datasetu
+>detach(dataset) # zrzucanie datasetu z pamieci
+
+#sprawdzanie struktury datasetu
+>str(dataset)
+>str(vector)
+
+#sprawdzanie klasy 
+>class(object)
+
+#sprawdzanie struktury wektora
+>levels(vector)
+
+#informacje nt ilosci wierszy i kolumn
+> dim(dataset)
+[1] ilość kolumn   ilość wierszy
+
+#ilosc wystapien(wierszy) w wektorze (kolumnie)
+> length(vector)
+[1] ilość wystapien (wierszy)
+
+#podsumowanie danych - funkcja SUMMARY
+> summary(dataset)
+> summary(vector)
+
+#zapisanie vektora jako factor
+> x <- as.factor(x)
+
+#dodawanie kolumny do datasetu 
+> NewData <- cbind(dataset/vector, dataset/vector)
+
+#usuwanie zmiennej/datasetu z environment
+> rm(object)
+
+#pobieranie sciezki working directory
+> getwd()
+
+#ustawianie sciezki working directory
+> setwd("path")
+
+#zapisywanie workspace'u
+> save.image("Name.Rdata") #domyslnie w 
+
+#załadowaniu workspace'ustawianie
+> load("path.Rdata")
+
+#otworzenie okienka z mozliwoscia wyboru pliku
+> file.choose()
+
