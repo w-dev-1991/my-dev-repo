@@ -1,0 +1,24 @@
+{
+	"name": "pipeline_dwa",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var_1",
+					"value": "doopa"
+				}
+			}
+		],
+		"variables": {
+			"var_1": {
+				"type": "String",
+				"defaultValue": "dupa"
+			}
+		},
+		"annotations": []
+	}
+}

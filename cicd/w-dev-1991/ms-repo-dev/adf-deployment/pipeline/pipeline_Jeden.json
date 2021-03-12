@@ -1,0 +1,33 @@
+{
+	"name": "pipeline_Jeden",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait_Jeden",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Wait_Dwa",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Wait_Jeden",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"annotations": []
+	}
+}

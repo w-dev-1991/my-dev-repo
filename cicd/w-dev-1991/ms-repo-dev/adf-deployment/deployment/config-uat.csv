@@ -1,0 +1,2 @@
+type,name,path,value
+linkedService,LS_Key_Vault,typeProperties.baseUrl,"https://kv-ms-uat.vault.azure.net/"

@@ -1,0 +1,17 @@
+{
+	"name": "pipeline_Trzy",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait_Trzy",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"annotations": []
+	}
+}
