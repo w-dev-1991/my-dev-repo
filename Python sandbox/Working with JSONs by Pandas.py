@@ -1,8 +1,9 @@
 import requests
 import pandas as pd
 import json
+import os
 
-if not(path.exists("C:\\Sandbox\\my-dev-repo\\Python sandbox\\Json_Pandas.json")):
+if not(os.path.exists("C:\\Sandbox\\my-dev-repo\\Python sandbox\\Json_Pandas.json")):
     #pull json file from jsonplachholder
     response = requests.get("https://jsonplaceholder.typicode.com/todos")
 

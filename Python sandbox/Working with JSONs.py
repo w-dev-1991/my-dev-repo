@@ -86,12 +86,6 @@ print(textToPrint)
 
 
 
-
-
-
-
-
-
 def todos():
     todos = json.loads(response.text)
     todos_by_user = {}
